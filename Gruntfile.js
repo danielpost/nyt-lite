@@ -22,8 +22,8 @@ module.exports = function(grunt) {
         js: '<%= project.src.dir %>/js'
       },
       app: {
-        dir: '.',
-        assets: './assets',
+        dir: './dist',
+        assets: '<%= project.app.dir %>/assets',
         js: '<%= project.app.assets %>/js',
         css: '<%= project.app.assets %>/css',
         images: '<%= project.app.assets %>/images',
@@ -209,6 +209,23 @@ module.exports = function(grunt) {
       }
     },
 
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: {
+          '<%= project.app.dir %>/index.html': '<%= project.src.dir %>/index.html'
+        }
+      },
+      dev: {
+        files: {
+          '<%= project.app.dir %>/index.html': '<%= project.src.dir %>/index.html'
+        }
+      },
+    },
+
     /**
      * Notify
      * https://github.com/dylang/grunt-notify
@@ -270,6 +287,10 @@ module.exports = function(grunt) {
       css: {
         files: ['style.css'],
         tasks: []
+      },
+      html: {
+        files: '<%= project.src.dir %>/{,*/}*.html',
+        tasks: ['htmlmin:dev']
       }
     }
   });
@@ -284,6 +305,7 @@ module.exports = function(grunt) {
     'sass:dev',
     'postcss:dev',
     'usebanner',
+    'htmlmin:dev',
     'notify:dev',
     'watch'
   ]);
@@ -298,6 +320,7 @@ module.exports = function(grunt) {
     'sass:dist',
     'postcss:dist',
     'usebanner',
+    'htmlmin:dist',
     'newer:imagemin',
     'notify:dist'
   ]);

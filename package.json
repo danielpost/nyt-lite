@@ -14,6 +14,7 @@
     "autoprefixer": "latest",
     "grunt": "latest",
     "grunt-banner": "^0.6.0",
+    "grunt-contrib-htmlmin": "^2.4.0",
     "grunt-contrib-imagemin": "latest",
     "grunt-contrib-jshint": "latest",
     "grunt-contrib-uglify": "latest",
@@ -24,8 +25,8 @@
     "grunt-sass": "latest",
     "load-grunt-tasks": "latest",
     "stylelint": "^7.10.1",
-    "stylelint-scss": "^1.4.4",
     "stylelint-config-standard": "^16.0.0",
+    "stylelint-scss": "^1.4.4",
     "time-grunt": "latest"
   },
   "private": true,
