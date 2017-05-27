@@ -1,0 +1,24 @@
+/* ==========================================================================
+   #WRAPPERS
+   ========================================================================== */
+
+/**
+ * Extend the inuitcss wrapper object.
+ *
+ * 1. On a bigger screen, add slightly more padding to the wrapper.
+ */
+
+.o-wrapper {
+  @include mq(medium) { /* 1 */
+    padding-right: $spacing-unit--medium;
+    padding-left: $spacing-unit--medium;
+  }
+}
+
+/* Size variants.
+   ========================================================================== */
+
+.o-wrapper--flush {
+  padding-right: 0;
+  padding-left:  0;
+}

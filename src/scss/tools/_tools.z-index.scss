@@ -1,0 +1,26 @@
+/* ==========================================================================
+   #Z-INDEX
+   ========================================================================== */
+
+$z-index: (
+  negative   : -1,
+  default    : 1,
+  overlay    : 10,
+  card       : 14,
+  cardMiddle : 15,
+  cardHover  : 16,
+  header     : 20,
+  top        : 1000,
+);
+
+@function z-index($key) {
+  @if not map-has-key($z-index, $key) {
+    @warn 'No layer found for `#{$key}` in $z-index map. Property omitted.';
+  }
+
+  @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}

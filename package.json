@@ -1,0 +1,36 @@
+{
+  "name": "nyt-lite",
+  "title": "New York Times Lite",
+  "url": "http://danielpost.com",
+  "description": "Light version of New York Times most popular articles.",
+  "author": {
+    "name": "Daniel Post",
+    "email": "daniel@danielpost.com",
+    "url": "http://danielpost.com"
+  },
+  "copyright": "2017",
+  "version": "1.0.0",
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "grunt": "latest",
+    "grunt-banner": "^0.6.0",
+    "grunt-contrib-imagemin": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-newer": "^1.2.0",
+    "grunt-notify": "latest",
+    "grunt-postcss": "latest",
+    "grunt-sass": "latest",
+    "load-grunt-tasks": "latest",
+    "stylelint": "^7.10.1",
+    "stylelint-scss": "^1.4.4",
+    "stylelint-config-standard": "^16.0.0",
+    "time-grunt": "latest"
+  },
+  "private": true,
+  "dependencies": {
+    "html5shiv": "^3.7.3",
+    "inuitcss": "^6.0.0-beta.4"
+  }
+}

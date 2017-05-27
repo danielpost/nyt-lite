@@ -1,0 +1,22 @@
+/* ==========================================================================
+   #RESET
+   ========================================================================== */
+
+/**
+ * Extend the standard reset with some extra stuff.
+ */
+
+button,
+input {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: 0;
+  font: inherit;
+  color: inherit;
+  line-height: normal;
+}
+
+button {
+  cursor: pointer;
+}

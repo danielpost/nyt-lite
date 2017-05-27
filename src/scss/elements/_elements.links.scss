@@ -1,0 +1,27 @@
+/* ==========================================================================
+   #LINKS
+   ========================================================================== */
+
+// Internal variables.
+$color-links:        $color-primary;
+$color-links--hover: $color-primary;
+
+/**
+ * Some additional link (and button) styling.
+ */
+
+a,
+button {
+  text-decoration: none;
+  outline: 0;
+  color: $color-links;
+
+  &:hover {
+    color: $color-links--hover;
+  }
+
+  [data-whatinput="keyboard"] &:focus {
+    outline: 2px solid $color-primary;
+    box-shadow: 0 0 8px 2px rgba($color-primary, 0.7);
+  }
+}

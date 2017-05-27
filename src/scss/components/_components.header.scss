@@ -1,0 +1,12 @@
+/* ==========================================================================
+   #HEADER
+   ========================================================================== */
+
+// Internal variables.
+$header-background-color: $color-black;
+
+.c-header {
+    padding: $spacing-unit--small $spacing-unit;
+    background-color: $header-background-color;
+    text-align: center;
+}

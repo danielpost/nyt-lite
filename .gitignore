@@ -1,0 +1,12 @@
+*.DS_Store
+!assets/
+assets/*
+!assets/images
+node_modules
+.sass-cache
+src/components
+style.css
+style.css.map
+npm-debug.log
+*.sublime-workspace
+.vscode

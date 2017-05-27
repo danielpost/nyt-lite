@@ -1,0 +1,69 @@
+/* ==========================================================================
+   #FONTS
+   ========================================================================== */
+
+/**
+ * Any custom fonts go here.
+ */
+
+$font-cooper-hewitt: 'Cooper Hewitt', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+@font-face {
+  font-family: 'Cooper Hewitt';
+  src: url('assets/fonts/CooperHewitt-Book.eot');
+  src:
+    url('assets/fonts/CooperHewitt-Book.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/CooperHewitt-Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cooper Hewitt';
+  src: url('assets/fonts/CooperHewitt-BookItalic.eot');
+  src:
+    url('assets/fonts/CooperHewitt-BookItalic.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/CooperHewitt-BookItalic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Cooper Hewitt';
+  src: url('assets/fonts/CooperHewitt-Medium.eot');
+  src:
+    url('assets/fonts/CooperHewitt-Medium.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/CooperHewitt-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cooper Hewitt';
+  src: url('assets/fonts/CooperHewitt-MediumItalic.eot');
+  src:
+    url('assets/fonts/CooperHewitt-MediumItalic.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/CooperHewitt-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Cooper Hewitt';
+  src: url('assets/fonts/CooperHewitt-Heavy.eot');
+  src:
+    url('assets/fonts/CooperHewitt-Heavy.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/CooperHewitt-Heavy.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cooper Hewitt';
+  src: url('assets/fonts/CooperHewitt-HeavyItalic.eot');
+  src:
+    url('assets/fonts/CooperHewitt-HeavyItalic.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/CooperHewitt-HeavyItalic.woff') format('woff');
+  font-weight: 800;
+  font-style: italic;
+}

@@ -1,0 +1,53 @@
+/* ==========================================================================
+   #ARTICLE-LIST
+   ========================================================================== */
+
+/**
+ * List of articles.
+ */
+
+.c-article-list {}
+
+.c-article-list__title {
+  @include font-size(18px);
+
+  color: $color-black;
+  margin-bottom: $spacing-unit--tiny;
+}
+
+.c-article-list__abstract {
+  @include font-size(16px);
+
+  color: $color-gray;
+}
+
+.c-article-list__img-container {
+  position: relative;
+  margin-top: -1px;
+}
+
+.c-article-list__img {
+  width: 100%;
+}
+
+.c-article-list__copyright {
+  @include font-size(12px);
+
+  color: $color-white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($color-black, 0.3);
+  padding: $spacing-unit--tiny $spacing-unit;
+
+  &::before {
+    content: '\00a9';
+    margin-right: $spacing-unit--tiny;
+  }
+}
+
+.c-article-list__content {
+  padding: $spacing-unit;
+  border-bottom: 1px solid $color-gray--light;
+}
