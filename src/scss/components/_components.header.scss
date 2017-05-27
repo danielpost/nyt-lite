@@ -6,6 +6,8 @@
 $header-background-color: $color-black;
 
 .c-header {
+    @include clearfix;
+
     position: relative;
     padding: $spacing-unit--small $spacing-unit;
     background-color: $header-background-color;
@@ -15,9 +17,7 @@ $header-background-color: $color-black;
 .c-header__button {
     @include font-size(14px);
 
-    position: absolute;
-    top: $spacing-unit--small;
-    right: $spacing-unit;
+    float: right;
     text-transform: uppercase;
     font-weight: 700;
 }

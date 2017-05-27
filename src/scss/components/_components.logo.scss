@@ -3,8 +3,14 @@
    ========================================================================== */
 
 // Internal variables.
-$logo-max-width: 200px;
+$logo-width: 200px;
 
 .c-logo {
-    max-width: $logo-max-width;
+    float: left;
+    color: $color-white;
+}
+
+.c-logo__img {
+    width: $logo-width;
+    margin-right: $spacing-unit--tiny;
 }
