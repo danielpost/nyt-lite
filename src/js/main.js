@@ -8,7 +8,7 @@
     'use strict';
 
     /**
-     * App
+     * Initialize app.
      */
 
     var app = new Vue({
@@ -47,8 +47,16 @@
                 'World',
                 'Your Money',
             ],
+            periods: [
+                '1',
+                '7',
+                '30'
+            ],
             currentSection: 'all-sections',
-            articles: null
+            currentPeriod: 1,
+            articles: null,
+            loading: true,
+            showFilter: false
         },
 
         created: function () {
@@ -56,12 +64,16 @@
         },
 
         watch: {
-            currentSection: 'fetchData'
+            currentSection: 'fetchData',
+            currentPeriod: 'fetchData'
         },
 
         filters: {
-            formatSection: function (v) {
-                return v.replace('-', ' ').replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+            formatSectionTitle: function (v) {
+                return v.replace('all-sections', 'All Sections');
+            },
+            formatPeriod: function (v) {
+                return v.replace('1', 'Today').replace('7', 'This week').replace('30', 'This month');
             }
         },
 
@@ -69,7 +81,9 @@
             fetchData: function () {
                 var xhr = new XMLHttpRequest(),
                     self = this,
-                    apiURL = 'https://api.nytimes.com/svc/mostpopular/v2/mostviewed/' + self.currentSection + '/1.json?api-key=39abdacf3adc4a93a23bf03ed0790397';
+                    apiURL = 'https://api.nytimes.com/svc/mostpopular/v2/mostviewed/' + self.currentSection + '/' + self.currentPeriod + '.json?api-key=39abdacf3adc4a93a23bf03ed0790397';
+
+                self.loading = true;
 
                 xhr.open('GET', apiURL);
 
@@ -95,6 +109,8 @@
                     }
 
                     self.articles = articles;
+
+                    self.loading = false;
                 };
 
                 xhr.send();

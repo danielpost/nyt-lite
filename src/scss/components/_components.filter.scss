@@ -1,0 +1,49 @@
+/* ==========================================================================
+   #FILTER
+   ========================================================================== */
+
+// Internal variables.
+$filter-background-color: $color-black;
+
+.c-filter {
+    position: relative;
+    color: $color-white;
+    background-color: $filter-background-color;
+    padding-bottom: $spacing-unit--small;
+}
+
+.c-filter__title {
+    @include font-size(12px, 1);
+
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: $spacing-unit--small;
+
+    &:not(:first-child) {
+        margin-top: $spacing-unit--small;
+    }
+}
+
+.c-filter__input {
+    display: none;
+}
+
+.c-filter__label {
+    @include font-size(12px, 1);
+
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: $spacing-unit--tiny;
+    padding: $spacing-unit--tiny;
+    border-radius: $global-radius;
+    background-color: rgba($color-white, 0.1);
+    transition: background $global-transition, color $global-transition;
+
+    input[type="radio"]:checked + & {
+        background-color: $color-white;
+        color: $color-black;
+        font-weight: 700;
+    }
+}
+

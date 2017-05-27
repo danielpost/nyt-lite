@@ -49,6 +49,7 @@ $inuit-wrapper-width: 600px;
 @import '../../node_modules/inuitcss/generic/generic.reset';
 @import '../../node_modules/inuitcss/generic/generic.shared';
 @import 'generic/generic.reset';
+@import 'generic/generic.animations';
 @import 'generic/generic.vue';
 
 /**
@@ -91,6 +92,8 @@ $inuit-ratios: (
 
 @import 'components/components.header';
 @import 'components/components.logo';
+@import 'components/components.filter';
+@import 'components/components.loader';
 @import 'components/components.article-list';
 
 /**

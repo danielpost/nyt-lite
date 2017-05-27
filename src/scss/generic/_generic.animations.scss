@@ -1,0 +1,17 @@
+/* ==========================================================================
+   #ANIMATIONS
+   ========================================================================== */
+
+/**
+ * Animations, mostly Vue-specific.
+ */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: $global-transition;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}

@@ -19,35 +19,55 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div class="c-header">
-            <img class="c-logo" src="assets/svg/nytlogo.svg" alt="The New York Times Lite">
-        </div>
+        <div id="app">
 
-        <div class="o-wrapper o-wrapper--flush">
-            <div id="app">
-                <template v-for="section in sections">
-                    <input type="radio" :id="section" :value="section" name="section" v-model="currentSection">
-                    <label :for="section">{{ section | formatSection }}</label>
-                </template>
-                <ul class="o-list-bare c-article-list">
-                    <li v-for="(article, index) in articles">
-                        <button v-cloak v-on:click="showArticle(article.title)" class="c-article-list__item">
-                            <div class="c-article-list__img-container" v-if="article.image && index % 3 === 0">
-                                <div class="o-ratio o-ratio--3:2 c-article-list__img">
-                                    <img class="o-ratio__content" :src="article.image.url" :alt="article.image.caption || article.title">
+            <div class="c-header">
+                <img class="c-logo" src="assets/svg/nytlogo.svg" alt="The New York Times Lite">
+                <button class="c-header__button" @click="showFilter = !showFilter">Filters</button>
+            </div>
+
+            <template v-if="showFilter">
+                <div class="c-filter">
+                    <div class="o-wrapper o-wrapper--flush">
+                        <span class="c-filter__title">Section</span>
+                        <template v-for="section in sections">
+                            <input class="c-filter__input" type="radio" :id="section" :value="section" name="section" v-model="currentSection">
+                            <label class="c-filter__label" :for="section">{{ section | formatSectionTitle }}</label>
+                        </template>
+                        <span class="c-filter__title">Period</span>
+                        <template v-for="period in periods">
+                            <input class="c-filter__input" type="radio" :id="period" :value="period" name="period" v-model="currentPeriod">
+                            <label class="c-filter__label" :for="period">{{ period | formatPeriod }}</label>
+                        </template>
+                    </div>
+                </div>
+            </template>
+            <div class="o-wrapper o-wrapper--flush">
+                <transition name="fade">
+                    <div class="c-loader" v-if="loading" aria-hidden="true">
+                        <img class="c-loader__icon" src="assets/svg/loader.svg" alt="Loading...">
+                    </div>
+
+                    <ul class="o-list-bare c-article-list" v-if="!loading">
+                        <li v-for="(article, index) in articles">
+                            <button v-cloak v-on:click="showArticle(article.title)" class="c-article-list__item">
+                                <div class="c-article-list__img-container" v-if="article.image && index % 3 === 0">
+                                    <div class="o-ratio o-ratio--3:2 c-article-list__img">
+                                        <img class="o-ratio__content" :src="article.image.url" :alt="article.image.caption || article.title">
+                                    </div>
+                                    <span class="c-article-list__img-caption" v-if="article.image.caption">{{ article.image.caption }}</span>
                                 </div>
-                                <span class="c-article-list__img-caption" v-if="article.image.caption">{{ article.image.caption }}</span>
-                            </div>
-                            <div class="c-article-list__content">
-                                <div class="c-article-list__img-inline" v-if="article.image && index % 3 !== 0">
-                                    <img :src="article.image.url" :alt="article.image.caption || article.title">
+                                <div class="c-article-list__content">
+                                    <div class="c-article-list__img-inline" v-if="article.image && index % 3 !== 0">
+                                        <img :src="article.image.url" :alt="article.image.caption || article.title">
+                                    </div>
+                                    <h2 class="c-article-list__title">{{ article.title }}</h2>
+                                    <span class="c-article-list__abstract">{{ article.abstract }}</span>
                                 </div>
-                                <h2 class="c-article-list__title">{{ article.title }}</h2>
-                                <span class="c-article-list__abstract">{{ article.abstract }}</span>
-                            </div>
-                        </button>
-                    </li>
-                </ul>
+                            </button>
+                        </li>
+                    </ul>
+                </transition>
             </div>
         </div>
 

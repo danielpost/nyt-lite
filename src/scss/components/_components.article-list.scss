@@ -35,8 +35,11 @@
 
 .c-article-list__img {
   position: relative;
-  margin-top: -1px;
   background-color: $color-gray--dark;
+
+  li:not(:first-child) & {
+    margin-top: -1px;
+  }
 }
 
 // .c-article-list__copyright {
