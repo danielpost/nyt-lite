@@ -25,21 +25,27 @@
 
         <div class="o-wrapper o-wrapper--flush">
             <div id="app">
+                <template v-for="section in sections">
+                    <input type="radio" :id="section" :value="section" name="section" v-model="currentSection">
+                    <label :for="section">{{ section | formatSection }}</label>
+                </template>
                 <ul class="o-list-bare c-article-list">
-                    <li v-for="(article, index) in articles" class="c-article-list__item">
-                        <a :href="article.url" target="_blank" v-cloak>
-                            <div class="c-article-list__img-container" v-if="index % 3 === 0">
+                    <li v-for="(article, index) in articles">
+                        <button v-cloak v-on:click="showArticle(article.title)" class="c-article-list__item">
+                            <div class="c-article-list__img-container" v-if="article.image && index % 3 === 0">
                                 <div class="o-ratio o-ratio--3:2 c-article-list__img">
                                     <img class="o-ratio__content" :src="article.image.url" :alt="article.image.caption || article.title">
-                                    <span class="c-article-list__copyright" v-if="article.image.copyright">{{ article.image.copyright }}</span>
                                 </div>
                                 <span class="c-article-list__img-caption" v-if="article.image.caption">{{ article.image.caption }}</span>
                             </div>
                             <div class="c-article-list__content">
+                                <div class="c-article-list__img-inline" v-if="article.image && index % 3 !== 0">
+                                    <img :src="article.image.url" :alt="article.image.caption || article.title">
+                                </div>
                                 <h2 class="c-article-list__title">{{ article.title }}</h2>
                                 <span class="c-article-list__abstract">{{ article.abstract }}</span>
                             </div>
-                        </a>
+                        </button>
                     </li>
                 </ul>
             </div>

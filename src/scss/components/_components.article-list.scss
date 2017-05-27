@@ -8,6 +8,12 @@
 
 .c-article-list {}
 
+.c-article-list__item {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
 .c-article-list__title {
   @include font-size(16px, 1.2);
 
@@ -22,29 +28,34 @@
   color: $color-gray;
 }
 
+.c-article-list__img-inline {
+  float: right;
+  margin: 0 0 $spacing-unit--small $spacing-unit--small;
+}
+
 .c-article-list__img {
   position: relative;
   margin-top: -1px;
   background-color: $color-gray--dark;
 }
 
-.c-article-list__copyright {
-  @include font-size(12px, 1.2);
+// .c-article-list__copyright {
+//   @include font-size(12px, 1.2);
 
-  display: block;
-  color: $color-white;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba($color-black, 0.3);
-  padding: $spacing-unit--tiny $spacing-unit;
+//   display: block;
+//   color: $color-white;
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background-color: rgba($color-black, 0.3);
+//   padding: $spacing-unit--tiny $spacing-unit;
 
-  &::before {
-    content: '\00a9';
-    margin-right: $spacing-unit--tiny;
-  }
-}
+//   &::before {
+//     content: '\00a9';
+//     margin-right: $spacing-unit--tiny;
+//   }
+// }
 
 .c-article-list__img-caption {
   @include font-size(12px, 1.2);
@@ -56,6 +67,8 @@
 }
 
 .c-article-list__content {
+  @include clearfix;
+
   padding: $spacing-unit;
   border-bottom: 1px solid $color-gray--light;
 }
