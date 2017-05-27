@@ -29,8 +29,11 @@
                     <li v-for="(article, index) in articles" class="c-article-list__item">
                         <a :href="article.url" target="_blank" v-cloak>
                             <div class="c-article-list__img-container" v-if="index % 3 === 0">
-                                <img class="c-article-list__img" :src="article.image.url" :alt="article.image.caption || article.title">
-                                <span class="c-article-list__copyright" v-if="article.image.copyright">{{ article.image.copyright }}</span>
+                                <div class="o-ratio o-ratio--3:2 c-article-list__img">
+                                    <img class="o-ratio__content" :src="article.image.url" :alt="article.image.caption || article.title">
+                                    <span class="c-article-list__copyright" v-if="article.image.copyright">{{ article.image.copyright }}</span>
+                                </div>
+                                <span class="c-article-list__img-caption" v-if="article.image.caption">{{ article.image.caption }}</span>
                             </div>
                             <div class="c-article-list__content">
                                 <h2 class="c-article-list__title">{{ article.title }}</h2>
@@ -43,7 +46,7 @@
         </div>
 
 
-        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="assets/js/vendor/vue.min.js"></script>
         <script src="assets/js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

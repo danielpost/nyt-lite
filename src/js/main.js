@@ -52,6 +52,8 @@
                         articles[i].image.url = articles[i].media[0]['media-metadata'][3].url;
                     }
 
+                    console.log(articles[i]);
+
                     self.articles = articles;
                 };
 

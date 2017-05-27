@@ -9,30 +9,29 @@
 .c-article-list {}
 
 .c-article-list__title {
-  @include font-size(18px);
+  @include font-size(16px, 1.2);
 
   color: $color-black;
-  margin-bottom: $spacing-unit--tiny;
+  margin-bottom: $spacing-unit--small;
 }
 
 .c-article-list__abstract {
-  @include font-size(16px);
+  @include font-size(14px, 1.3);
 
+  display: block;
   color: $color-gray;
 }
 
-.c-article-list__img-container {
+.c-article-list__img {
   position: relative;
   margin-top: -1px;
-}
-
-.c-article-list__img {
-  width: 100%;
+  background-color: $color-gray--dark;
 }
 
 .c-article-list__copyright {
-  @include font-size(12px);
+  @include font-size(12px, 1.2);
 
+  display: block;
   color: $color-white;
   position: absolute;
   left: 0;
@@ -45,6 +44,15 @@
     content: '\00a9';
     margin-right: $spacing-unit--tiny;
   }
+}
+
+.c-article-list__img-caption {
+  @include font-size(12px, 1.2);
+
+  display: block;
+  font-style: italic;
+  color: $color-gray;
+  padding: $spacing-unit--small $spacing-unit 0 $spacing-unit;
 }
 
 .c-article-list__content {

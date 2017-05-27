@@ -105,6 +105,11 @@ module.exports = function(grunt) {
         files: {
           '<%= project.app.js %>/vendor/html5shiv.min.js': '<%= project.src.node %>/html5shiv/dist/html5shiv.js'
         }
+      },
+      vue: {
+        files: {
+          '<%= project.app.js %>/vendor/vue.min.js': '<%= project.src.node %>/vue/dist/vue.min.js'
+        }
       }
     },
 
