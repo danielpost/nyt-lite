@@ -114,21 +114,6 @@
                 };
 
                 xhr.send();
-            },
-            showArticle: function (title) {
-                var xhr = new XMLHttpRequest(),
-                    self = this,
-                    apiURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=39abdacf3adc4a93a23bf03ed0790397';
-
-                xhr.open('GET', apiURL + '&q=' + title);
-
-                xhr.onload = function () {
-                    var article = JSON.parse(xhr.responseText).response.docs[0];
-
-                    self.article = article;
-                };
-
-                xhr.send();
             }
         }
 
