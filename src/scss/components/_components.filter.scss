@@ -9,7 +9,7 @@ $filter-background-color: $color-black;
     position: relative;
     color: $color-white;
     background-color: $filter-background-color;
-    padding-bottom: $spacing-unit--small;
+    padding: 0 $spacing-unit--small $spacing-unit--small;
 }
 
 .c-filter__title {
