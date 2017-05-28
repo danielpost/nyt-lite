@@ -28,7 +28,7 @@
         <div id="app">
 
             <div class="c-header">
-                <div class="c-logo">
+                <div class="c-logo" @click="currentSection = 'all-sections'">
                     <img class="c-logo__img" src="assets/svg/nytlogo.svg" alt="The New York Times Lite">
                     Lite
                 </div>
@@ -38,6 +38,8 @@
             <template v-if="showFilter">
                 <div class="c-filter">
                     <div class="o-wrapper o-wrapper--flush">
+                        <span class="c-filter__title">What is this?</span>
+                        <p>A fast and lightweight website showing the Most Popular articles of The New York Times. Not affiliated by The New York Times, just a side project. <a href="https://developer.nytimes.com">Data provided by The New York Times</a>. Hosted by <a href="https://netlify.com">Netlify</a>.</p>
                         <span class="c-filter__title">Section</span>
                         <template v-for="section in sections">
                             <input class="c-filter__input" type="radio" :id="section" :value="section" name="section" v-model="currentSection">
@@ -59,7 +61,7 @@
 
                     <ul class="o-list-bare c-article-list" v-if="!loading" v-cloak>
                         <li v-for="(article, index) in articles">
-                            <button v-on:click="showArticle(article.title)" class="c-article-list__item">
+                            <a :href="article.url" class="c-article-list__item">
                                 <div class="c-article-list__img-container" v-if="article.image && index % 3 === 0">
                                     <div class="o-ratio o-ratio--3:2 c-article-list__img">
                                         <img class="o-ratio__content" :src="article.image.url" :alt="article.image.caption || article.title">
@@ -73,7 +75,7 @@
                                     <h2 class="c-article-list__title" v-html="article.title"></h2>
                                     <span class="c-article-list__abstract" v-html="article.abstract"></span>
                                 </div>
-                            </button>
+                            </a>
                         </li>
                     </ul>
                 </transition>

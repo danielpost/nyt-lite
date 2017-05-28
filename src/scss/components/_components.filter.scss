@@ -6,6 +6,8 @@
 $filter-background-color: $color-black;
 
 .c-filter {
+    @include font-size(14px);
+
     position: relative;
     color: $color-white;
     background-color: $filter-background-color;
@@ -35,7 +37,7 @@ $filter-background-color: $color-black;
     display: inline-block;
     cursor: pointer;
     margin-right: ($spacing-unit--tiny * 0.75);
-    margin-bottom: $spacing-unit--tiny;
+    margin-bottom: ($spacing-unit--tiny * 0.75);
     padding: $spacing-unit--tiny;
     border-radius: $global-radius;
     background-color: rgba($color-white, 0.1);

@@ -15,9 +15,18 @@ $header-background-color: $color-black;
 }
 
 .c-header__button {
-    @include font-size(14px);
+    @include font-size(13px, 1);
 
     float: right;
     text-transform: uppercase;
     font-weight: 700;
+    padding: $spacing-unit--tiny $spacing-unit--small;
+    border-radius: $global-radius;
+    background-color: $color-primary;
+    color: $color-white;
+
+    &:hover,
+    &:focus {
+        color: $color-white;
+    }
 }

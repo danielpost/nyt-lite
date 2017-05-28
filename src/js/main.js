@@ -125,8 +125,6 @@
                 xhr.onload = function () {
                     var article = JSON.parse(xhr.responseText).response.docs[0];
 
-                    console.log(article);
-
                     self.article = article;
                 };
 
