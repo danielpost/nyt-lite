@@ -98,17 +98,19 @@ module.exports = function(grunt) {
           banner: '<%= project.banner.general %>'
         },
         files: {
-          '<%= project.app.js %>/main.js': '<%= project.src.js %>/*.js'
-        }
-      },
-      html5shiv: {
-        files: {
-          '<%= project.app.js %>/vendor/html5shiv.min.js': '<%= project.src.node %>/html5shiv/dist/html5shiv.js'
-        }
-      },
-      vue: {
-        files: {
+          '<%= project.app.js %>/main.js': '<%= project.src.js %>/*.js',
+          '<%= project.app.js %>/vendor/html5shiv.min.js': '<%= project.src.node %>/html5shiv/dist/html5shiv.js',
           '<%= project.app.js %>/vendor/vue.min.js': '<%= project.src.node %>/vue/dist/vue.min.js'
+        }
+      },
+      dev: {
+        options: {
+          banner: '<%= project.banner.general %>'
+        },
+        files: {
+          '<%= project.app.js %>/main.js': '<%= project.src.js %>/*.js',
+          '<%= project.app.js %>/vendor/html5shiv.min.js': '<%= project.src.node %>/html5shiv/dist/html5shiv.js',
+          '<%= project.app.js %>/vendor/vue.min.js': '<%= project.src.node %>/vue/dist/vue.js'
         }
       }
     },
@@ -316,7 +318,7 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('default', [
     'jshint:dev',
-    'uglify',
+    'uglify:dev',
     'sass:dev',
     'postcss:dev',
     'usebanner',
@@ -331,7 +333,7 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('build', [
     'jshint:dist',
-    'uglify',
+    'uglify:dist',
     'sass:dist',
     'postcss:dist',
     'usebanner',
