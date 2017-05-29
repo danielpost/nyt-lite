@@ -36,7 +36,7 @@
 
             <transition name="bounce">
                 <template v-if="showFilter">
-                    <div class="c-filter" v-bind:aria-hidden="!showFilter">
+                    <div class="c-filter" @click.self="showFilter = !showFilter">
                         <div class="o-wrapper o-wrapper--flush">
                             <div class="c-filter__inner">
                                 <button class="c-filter__close" @click="showFilter = !showFilter">Close</button>
