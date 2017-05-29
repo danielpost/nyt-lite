@@ -22,6 +22,7 @@ $filter-background-color: $color-black;
 }
 
 .c-filter__inner {
+  position: relative;
   background-color: $color-white;
   padding: $spacing-unit;
   border-radius: $global-radius;
@@ -30,6 +31,26 @@ $filter-background-color: $color-black;
 
   > :last-child {
     margin-bottom: 0;
+  }
+}
+
+.c-filter__close {
+  @include font-size(12px, 1);
+
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: $spacing-unit--tiny * 1.5;
+  color: #fff;
+  border-top-right-radius: $global-radius;
+  border-bottom-left-radius: $global-radius;
+  background-color: $color-primary;
+
+  &:hover,
+  &:focus {
+    color: $color-white;
   }
 }
 
@@ -42,7 +63,7 @@ $filter-background-color: $color-black;
   margin-bottom: $spacing-unit--small;
   color: $color-black;
 
-  &:not(:first-child) {
+  &:not(:first-of-type) {
     margin-top: $spacing-unit--small;
   }
 }
