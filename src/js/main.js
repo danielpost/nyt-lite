@@ -47,13 +47,19 @@
                 'World',
                 'Your Money',
             ],
-            periods: [
-                '1',
-                '7',
-                '30'
-            ],
+            periods: {
+                1: 'Today',
+                7: 'This week',
+                30: 'This month'
+            },
+            types: {
+                mostviewed: 'Most viewed',
+                mostshared: 'Most shared',
+                mostemailed: 'Most emailed',
+            },
             currentSection: 'all-sections',
             currentPeriod: 1,
+            currentType: 'mostviewed',
             articles: null,
             loading: true,
             showFilter: false
@@ -65,15 +71,13 @@
 
         watch: {
             currentSection: 'fetchData',
-            currentPeriod: 'fetchData'
+            currentPeriod: 'fetchData',
+            currentType: 'fetchData'
         },
 
         filters: {
             formatSectionTitle: function (v) {
                 return v.replace('all-sections', 'All Sections');
-            },
-            formatPeriod: function (v) {
-                return v.replace('1', 'Today').replace('7', 'This week').replace('30', 'This month');
             }
         },
 
@@ -81,7 +85,7 @@
             fetchData: function () {
                 var xhr = new XMLHttpRequest(),
                     self = this,
-                    apiURL = 'https://api.nytimes.com/svc/mostpopular/v2/mostviewed/' + self.currentSection + '/' + self.currentPeriod + '.json?api-key=39abdacf3adc4a93a23bf03ed0790397';
+                    apiURL = 'https://api.nytimes.com/svc/mostpopular/v2/' + self.currentType + '/' + self.currentSection + '/' + self.currentPeriod + '.json?api-key=39abdacf3adc4a93a23bf03ed0790397';
 
                 self.loading = true;
 
@@ -96,14 +100,18 @@
                             articles[i].image.caption = articles[i].media[0].caption || '';
                             articles[i].image.copyright = articles[i].media[0].copyright || '';
 
-                            // all-sections has different image thumbnails so we need to pick the correct ones.
-                            var bigImage = self.currentSection === 'all-sections' ? 3 : 2,
-                                smallImage = self.currentSection === 'all-sections' ? 1 : 0;
+                            /**
+                             * For some reason, all-sections combined with mostviewed has different
+                             * image formats so we need to account for that.
+                             */
+                            var isDifferentFormat = self.currentSection === 'all-sections' && self.currentType === 'mostviewed',
+                                bigImage = isDifferentFormat ? 3 : 2,
+                                smallImage = isDifferentFormat ? 1 : 0;
 
                             if (i % 3 === 0 ) {
-                                articles[i].image.url = articles[i].media[0]['media-metadata'][bigImage].url;
+                                articles[i].image.url = articles[i].media[0]['media-metadata'][bigImage].url || '';
                             } else {
-                                articles[i].image.url = articles[i].media[0]['media-metadata'][smallImage].url;
+                                articles[i].image.url = articles[i].media[0]['media-metadata'][smallImage].url || '';
                             }
                         }
                     }

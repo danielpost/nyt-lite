@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="preload" href="assets/css/main.css" as="style">
 
         <!--[if lt IE 9]>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -46,9 +46,14 @@
                             <label class="c-filter__label" :for="section">{{ section | formatSectionTitle }}</label>
                         </template>
                         <span class="c-filter__title">Period</span>
-                        <template v-for="period in periods">
-                            <input class="c-filter__input" type="radio" :id="period" :value="period" name="period" v-model="currentPeriod">
-                            <label class="c-filter__label" :for="period">{{ period | formatPeriod }}</label>
+                        <template v-for="(period, key) in periods">
+                            <input class="c-filter__input" type="radio" :id="key" :value="key" name="key" v-model="currentPeriod">
+                            <label class="c-filter__label" :for="key">{{ period }}</label>
+                        </template>
+                        <span class="c-filter__title">Type</span>
+                        <template v-for="(type, key) in types">
+                            <input class="c-filter__input" type="radio" :id="key" :value="key" name="key" v-model="currentType">
+                            <label class="c-filter__label" :for="key">{{ type }}</label>
                         </template>
                     </div>
                 </div>
