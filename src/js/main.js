@@ -130,7 +130,11 @@
                     body = document.body,
                     lockedClass = 'is-locked';
 
-                self.showFilter ? body.classList.add(lockedClass) : body.classList.remove(lockedClass);
+                if (self.showFilter) {
+                    body.classList.add(lockedClass);
+                } else {
+                    body.classList.remove(lockedClass);
+                }
             }
         }
 
