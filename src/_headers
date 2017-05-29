@@ -1,7 +1,7 @@
 /
-  Link: <assets/css/main.css>; rel=preload; as=stylesheet
-  Link: <assets/js/vendor/vue.min.js>; rel=preload; as=script
-  Link: <assets/js/main.js>; rel=preload; as=script
+  Link: </assets/css/main.css>; rel=preload; as=stylesheet
+  Link: </assets/js/vendor/vue.min.js>; rel=preload; as=script
+  Link: </assets/js/main.js>; rel=preload; as=script
   Cache-Control: private,max-age=0
 /*
   X-Frame-Options: DENY
