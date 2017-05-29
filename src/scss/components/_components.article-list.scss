@@ -14,6 +14,13 @@
   text-align: left;
 }
 
+.c-article-list__content {
+  @include clearfix;
+
+  padding: $spacing-unit;
+  border-bottom: 1px solid $color-gray--light;
+}
+
 .c-article-list__title {
   @include font-size(16px, 1.2);
 
@@ -43,24 +50,6 @@
   }
 }
 
-// .c-article-list__copyright {
-//   @include font-size(12px, 1.2);
-
-//   display: block;
-//   color: $color-white;
-//   position: absolute;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   background-color: rgba($color-black, 0.3);
-//   padding: $spacing-unit--tiny $spacing-unit;
-
-//   &::before {
-//     content: '\00a9';
-//     margin-right: $spacing-unit--tiny;
-//   }
-// }
-
 .c-article-list__img-caption {
   @include font-size(12px, 1.2);
 
@@ -70,9 +59,20 @@
   padding: $spacing-unit--small $spacing-unit 0 $spacing-unit;
 }
 
-.c-article-list__content {
-  @include clearfix;
+/**
+ * No articles found.
+ */
 
-  padding: $spacing-unit;
-  border-bottom: 1px solid $color-gray--light;
+.c-article-list__empty {
+  color: $color-gray;
+  text-align: center;
+  padding: $spacing-unit--large $spacing-unit;
+}
+
+.c-article-list__empty-title {
+  @include font-size(22px, 1.2);
+
+  font-family: 'Charter', Georgia, 'Times New Roman', Times, serif;
+  color: $color-black;
+  margin-bottom: $spacing-unit--small;
 }

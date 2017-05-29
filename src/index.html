@@ -95,6 +95,10 @@
                                 </div>
                             </a>
                         </li>
+                        <li class="c-article-list__empty" v-if="articles.length === 0">
+                            <h2 class="c-article-list__empty-title">Whoops! No articles found.</h2>
+                            <p>Please try some different filters.</p>
+                        </li>
                     </ul>
                 </transition>
             </div>
