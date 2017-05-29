@@ -38,23 +38,26 @@
             <template v-if="showFilter">
                 <div class="c-filter">
                     <div class="o-wrapper o-wrapper--flush">
+                        <span class="c-filter__title">Section</span>
+                        <select class="c-filter__select" v-model="currentSection">
+                            <option v-for="section in sections" v-bind:value="section">
+                                {{ section | formatSectionTitle }}
+                            </option>
+                        </select>
+                        <span class="c-filter__title">Period</span>
+                        <select class="c-filter__select" v-model="currentPeriod">
+                            <option v-for="(period, key) in periods" v-bind:value="key">
+                                {{ period }}
+                            </option>
+                        </select>
+                        <span class="c-filter__title">Type</span>
+                        <select class="c-filter__select" v-model="currentType">
+                            <option v-for="(type, key) in types" v-bind:value="key">
+                                {{ type }}
+                            </option>
+                        </select>
                         <span class="c-filter__title">What is this?</span>
                         <p>A fast and lightweight website showing the Most Popular articles of The New York Times. Not affiliated with The New York Times, just a side project. <a href="https://developer.nytimes.com">Data provided by The New York Times</a>. Hosted by <a href="https://netlify.com">Netlify</a>.</p>
-                        <span class="c-filter__title">Section</span>
-                        <template v-for="section in sections">
-                            <input class="c-filter__input" type="radio" :id="section" :value="section" name="section" v-model="currentSection">
-                            <label class="c-filter__label" :for="section">{{ section | formatSectionTitle }}</label>
-                        </template>
-                        <span class="c-filter__title">Period</span>
-                        <template v-for="(period, key) in periods">
-                            <input class="c-filter__input" type="radio" :id="key" :value="key" name="key" v-model="currentPeriod">
-                            <label class="c-filter__label" :for="key">{{ period }}</label>
-                        </template>
-                        <span class="c-filter__title">Type</span>
-                        <template v-for="(type, key) in types">
-                            <input class="c-filter__input" type="radio" :id="key" :value="key" name="key" v-model="currentType">
-                            <label class="c-filter__label" :for="key">{{ type }}</label>
-                        </template>
                     </div>
                 </div>
             </template>

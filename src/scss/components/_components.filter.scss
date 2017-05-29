@@ -6,47 +6,56 @@
 $filter-background-color: $color-black;
 
 .c-filter {
-    @include font-size(14px);
+  @include font-size(14px);
 
-    position: relative;
-    color: $color-white;
-    background-color: $filter-background-color;
-    padding: $spacing-unit--small;
+  position: relative;
+  color: $color-white;
+  background-color: $filter-background-color;
+  padding: $spacing-unit--small;
 }
 
 .c-filter__title {
-    @include font-size(12px, 1);
+  @include font-size(12px, 1);
 
-    display: block;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: $spacing-unit--small;
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: $spacing-unit--small;
 
-    &:not(:first-child) {
-        margin-top: $spacing-unit--small;
-    }
+  &:not(:first-child) {
+    margin-top: $spacing-unit--small;
+  }
 }
 
-.c-filter__input {
-    display: none;
-}
+.c-filter__select {
+  position: relative;
+  margin-bottom: $spacing-unit;
 
-.c-filter__label {
-    @include font-size(12px, 1);
-
-    display: inline-block;
-    cursor: pointer;
-    margin-right: ($spacing-unit--tiny * 0.75);
-    margin-bottom: ($spacing-unit--tiny * 0.75);
-    padding: $spacing-unit--tiny;
+  select {
+    -webkit-appearance: none;
+    padding: $spacing-unit--small;
     border-radius: $global-radius;
+    border: 0;
     background-color: rgba($color-white, 0.1);
-    transition: background $global-transition, color $global-transition;
+    color: $color-white;
+    width: 100%;
+  }
 
-    input[type="radio"]:checked + & {
-        background-color: $color-white;
-        color: $color-black;
-        font-weight: 700;
-    }
+  &::-ms-expand {
+    display: none;
+  }
+
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: $spacing-unit--small;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: $color-white transparent transparent transparent;
+  }
 }
-

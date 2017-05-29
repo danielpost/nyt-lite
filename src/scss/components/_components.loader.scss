@@ -6,20 +6,20 @@
 $loader-max-width: 60px;
 
 .c-loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .c-loader__icon {
-    max-width: $loader-max-width;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: $spacing-unit--small;
-    border-radius: $global-radius;
-    background-color: rgba($color-white, 0.9);
+  max-width: $loader-max-width;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: $spacing-unit--small;
+  border-radius: $global-radius;
+  background-color: rgba($color-white, 0.9);
 }

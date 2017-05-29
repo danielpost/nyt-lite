@@ -6,27 +6,27 @@
 $header-background-color: $color-black;
 
 .c-header {
-    @include clearfix;
+  @include clearfix;
 
-    position: relative;
-    padding: $spacing-unit--small;
-    background-color: $header-background-color;
-    text-align: center;
+  position: relative;
+  padding: $spacing-unit--small;
+  background-color: $header-background-color;
+  text-align: center;
 }
 
 .c-header__button {
-    @include font-size(13px, 1);
+  @include font-size(13px, 1);
 
-    float: right;
-    text-transform: uppercase;
-    font-weight: 700;
-    padding: $spacing-unit--tiny $spacing-unit--small;
-    border-radius: $global-radius;
-    background-color: $color-primary;
+  float: right;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: $spacing-unit--tiny $spacing-unit--small;
+  border-radius: $global-radius;
+  background-color: $color-primary;
+  color: $color-white;
+
+  &:hover,
+  &:focus {
     color: $color-white;
-
-    &:hover,
-    &:focus {
-        color: $color-white;
-    }
+  }
 }
