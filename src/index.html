@@ -80,14 +80,14 @@
                     <ul class="o-list-bare c-article-list" v-if="!loading" v-cloak>
                         <li v-for="(article, index) in articles">
                             <a :href="article.url" class="c-article-list__item">
-                                <div class="c-article-list__img-container" v-if="article.image && index % 3 === 0">
+                                <div class="c-article-list__img-container" v-if="article.image && article.bigImage">
                                     <div class="o-ratio o-ratio--3:2 c-article-list__img">
                                         <img class="o-ratio__content" :src="article.image.url" :alt="article.image.caption || article.title">
                                     </div>
                                     <span class="c-article-list__img-caption" v-if="article.image.caption" v-html="article.image.caption"></span>
                                 </div>
                                 <div class="c-article-list__content">
-                                    <div class="c-article-list__img-inline" v-if="article.image && index % 3 !== 0">
+                                    <div class="c-article-list__img-inline" v-if="article.image && !article.bigImage">
                                         <img :src="article.image.url" :alt="article.image.caption || article.title">
                                     </div>
                                     <h2 class="c-article-list__title" v-html="article.title"></h2>

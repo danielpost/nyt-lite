@@ -97,6 +97,7 @@
 
                     for (var i in articles) {
                         if (articles[i].media) {
+                            articles[i].bigImage = i % 3 === 0 ? true : false;
                             articles[i].image = {};
                             articles[i].image.caption = articles[i].media[0].caption || '';
                             articles[i].image.copyright = articles[i].media[0].copyright || '';
@@ -109,7 +110,7 @@
                                 bigImage = isDifferentFormat ? 3 : 2,
                                 smallImage = isDifferentFormat ? 1 : 0;
 
-                            if (i % 3 === 0 ) {
+                            if (articles[i].bigImage) {
                                 articles[i].image.url = articles[i].media[0]['media-metadata'][bigImage].url || '';
                             } else {
                                 articles[i].image.url = articles[i].media[0]['media-metadata'][smallImage].url || '';
