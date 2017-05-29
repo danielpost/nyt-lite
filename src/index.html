@@ -26,7 +26,6 @@
         <![endif]-->
 
         <div id="app">
-
             <div class="c-header">
                 <div class="c-logo" @click="currentSection = 'all-sections'">
                     <img class="c-logo__img" src="assets/svg/nytlogo.svg" alt="The New York Times Lite">
@@ -36,34 +35,36 @@
             </div>
 
             <template v-if="showFilter">
-                <div class="c-filter">
+                <div class="c-filter" v-bind:aria-hidden="!showFilter">
                     <div class="o-wrapper o-wrapper--flush">
-                        <span class="c-filter__title">Section</span>
-                        <div class="c-filter__select">
-                            <select v-model="currentSection">
-                                <option v-for="section in sections" v-bind:value="section">
-                                    {{ section | formatSectionTitle }}
-                                </option>
-                            </select>
+                            <div class="c-filter__inner">
+                            <span class="c-filter__title">Section</span>
+                            <div class="c-filter__select">
+                                <select v-model="currentSection">
+                                    <option v-for="section in sections" v-bind:value="section">
+                                        {{ section | formatSectionTitle }}
+                                    </option>
+                                </select>
+                            </div>
+                            <span class="c-filter__title">Period</span>
+                            <div class="c-filter__select">
+                                <select v-model="currentPeriod">
+                                    <option v-for="(period, key) in periods" v-bind:value="key">
+                                        {{ period }}
+                                    </option>
+                                </select>
+                            </div>
+                            <span class="c-filter__title">Type</span>
+                            <div class="c-filter__select">
+                                <select v-model="currentType">
+                                    <option v-for="(type, key) in types" v-bind:value="key">
+                                        {{ type }}
+                                    </option>
+                                </select>
+                            </div>
+                            <span class="c-filter__title">What is this?</span>
+                            <p>A fast and lightweight website showing the Most Popular articles of The New York Times. Not affiliated with The New York Times, just a side project. <a href="https://developer.nytimes.com">Data provided by The New York Times</a>. Hosted by <a href="https://netlify.com">Netlify</a>.</p>
                         </div>
-                        <span class="c-filter__title">Period</span>
-                        <div class="c-filter__select">
-                            <select v-model="currentPeriod">
-                                <option v-for="(period, key) in periods" v-bind:value="key">
-                                    {{ period }}
-                                </option>
-                            </select>
-                        </div>
-                        <span class="c-filter__title">Type</span>
-                        <div class="c-filter__select">
-                            <select v-model="currentType">
-                                <option v-for="(type, key) in types" v-bind:value="key">
-                                    {{ type }}
-                                </option>
-                            </select>
-                        </div>
-                        <span class="c-filter__title">What is this?</span>
-                        <p>A fast and lightweight website showing the Most Popular articles of The New York Times. Not affiliated with The New York Times, just a side project. <a href="https://developer.nytimes.com">Data provided by The New York Times</a>. Hosted by <a href="https://netlify.com">Netlify</a>.</p>
                     </div>
                 </div>
             </template>

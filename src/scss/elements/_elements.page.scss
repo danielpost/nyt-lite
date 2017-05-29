@@ -16,3 +16,15 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/**
+ * Hacky way to lock app when filter is open.
+ */
+
+body {
+  &.is-locked {
+    position: fixed;
+    height: 100%;
+    overflow: hidden;
+  }
+}

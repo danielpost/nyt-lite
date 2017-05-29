@@ -6,12 +6,31 @@
 $filter-background-color: $color-black;
 
 .c-filter {
-  @include font-size(14px);
+  @include font-size(14px, 1.5);
 
-  position: relative;
-  color: $color-white;
-  background-color: $filter-background-color;
-  padding: $spacing-unit--small;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: rgba($color-black, 0.4);
+  padding: $spacing-unit;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  color: $color-gray;
+}
+
+.c-filter__inner {
+  background-color: $color-white;
+  padding: $spacing-unit;
+  border-radius: $global-radius;
+  margin-top: $spacing-unit--large;
+  box-shadow: $global-box-shadow;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
 }
 
 .c-filter__title {
@@ -21,6 +40,7 @@ $filter-background-color: $color-black;
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: $spacing-unit--small;
+  color: $color-black;
 
   &:not(:first-child) {
     margin-top: $spacing-unit--small;
@@ -38,8 +58,8 @@ $filter-background-color: $color-black;
     padding: $spacing-unit--small;
     border-radius: $global-radius;
     border: 0;
-    background-color: rgba($color-white, 0.1);
-    color: $color-white;
+    background-color: rgba($color-black, 0.05);
+    color: $color-black;
     width: 100%;
   }
 
@@ -58,6 +78,6 @@ $filter-background-color: $color-black;
     height: 0;
     border-style: solid;
     border-width: 5px 5px 0 5px;
-    border-color: $color-white transparent transparent transparent;
+    border-color: $color-black transparent transparent transparent;
   }
 }

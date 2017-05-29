@@ -72,7 +72,8 @@
         watch: {
             currentSection: 'fetchData',
             currentPeriod: 'fetchData',
-            currentType: 'fetchData'
+            currentType: 'fetchData',
+            showFilter: 'lockBody'
         },
 
         filters: {
@@ -122,6 +123,14 @@
                 };
 
                 xhr.send();
+            },
+
+            lockBody: function () {
+                var self = this,
+                    body = document.body,
+                    lockedClass = 'is-locked';
+
+                self.showFilter ? body.classList.add(lockedClass) : body.classList.remove(lockedClass);
             }
         }
 

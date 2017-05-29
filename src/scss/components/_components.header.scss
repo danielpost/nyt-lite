@@ -9,6 +9,7 @@ $header-background-color: $color-black;
   @include clearfix;
 
   position: relative;
+  z-index: 150;
   padding: $spacing-unit--small;
   background-color: $header-background-color;
   text-align: center;
