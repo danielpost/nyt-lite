@@ -17,20 +17,17 @@
 }
 
 .bounce-enter-active {
-  animation: bounce-in $global-transition-duration;
+  animation: bounce-in $global-transition-duration $global-transition-easing;
 }
 
 .bounce-leave-active {
-  animation: fade-out 0.2s;
+  animation: fade-out $global-transition-duration $global-transition-easing;
 }
 
 @keyframes bounce-in {
   0% {
     opacity: 0;
     transform: scale(0.97);
-  }
-  80% {
-    transform: scale(1.02);
   }
   100% {
     transform: scale(1);

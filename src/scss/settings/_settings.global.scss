@@ -30,7 +30,7 @@ $global-box-shadow--hover: 0 5px 20px 1px rgba($color-black, 0.15) !default;
  * `transition: transform $global-transition-duration linear;`
  */
 
-$global-transition-duration: 0.4s !default;
+$global-transition-duration: 0.2s !default;
 $global-transition-easing: cubic-bezier(0, 0.7, 0.8, 1) !default;
 $global-transition: $global-transition-duration $global-transition-easing !default;
 
