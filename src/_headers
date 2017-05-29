@@ -1,0 +1,12 @@
+/
+  Link: <assets/css/main.css>; rel=preload; as=stylesheet
+  Link: <assets/js/vendor/vue.min.js>; rel=preload; as=script
+  Link: <assets/js/main.js>; rel=preload; as=script
+  Cache-Control: private,max-age=0
+/*
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+/*.css
+  Cache-Control: max-age=31536000, public
+/*.js
+  Cache-Control: max-age=31536000, public

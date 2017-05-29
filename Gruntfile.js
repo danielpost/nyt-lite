@@ -232,6 +232,16 @@ module.exports = function(grunt) {
     },
 
     /**
+     * Copy other files
+     */
+    copy: {
+      headers: {
+        src: '<%= project.src.dir %>/_headers',
+        dest: '<%= project.app.dir %>/_headers',
+      },
+    },
+
+    /**
      * Notify
      * https://github.com/dylang/grunt-notify
      * Notify when a task is succesful
@@ -326,6 +336,7 @@ module.exports = function(grunt) {
     'postcss:dist',
     'usebanner',
     'htmlmin:dist',
+    'copy',
     'newer:imagemin',
     'notify:dist'
   ]);
