@@ -121,8 +121,6 @@
                     self.articles = articles;
 
                     self.loading = false;
-
-                    console.log(articles);
                 };
 
                 xhr.send();
