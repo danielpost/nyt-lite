@@ -32,6 +32,8 @@ $filter-background-color: $color-black;
   margin-bottom: $spacing-unit;
 
   select {
+    @include font-size(16px, 1);
+
     -webkit-appearance: none;
     padding: $spacing-unit--small;
     border-radius: $global-radius;
