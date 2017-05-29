@@ -1,5 +1,5 @@
 /
-  Link: </assets/css/main.css>; rel=preload; as=stylesheet
+  Link: </assets/css/main.css>; rel=preload; as=style
   Link: </assets/js/vendor/vue.min.js>; rel=preload; as=script
   Link: </assets/js/main.js>; rel=preload; as=script
   Cache-Control: private,max-age=0
