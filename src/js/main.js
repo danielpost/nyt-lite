@@ -98,6 +98,7 @@
                 this.currentSection = 'all-sections';
                 this.currentPeriod = 1;
                 this.currentType = 'mostviewed';
+                this.showFilter = false;
             },
 
             fetchData: function (loadMore) {
