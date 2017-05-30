@@ -151,7 +151,7 @@
                      * button is pressed those same results are returned, so we have to say
                      * there's no new results.
                      */
-                    self.noNewResults = (loadMore && self.articles.length < 20) ? true : false;
+                    self.noNewResults = (loadMore && articles.length < 20) ? true : false;
 
                     self.loadingMore = false;
                     self.loading = false;

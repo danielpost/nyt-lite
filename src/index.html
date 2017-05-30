@@ -103,11 +103,9 @@
                         <li class="c-article-list__content" v-if="!noNewResults">
                             <button class="c-btn c-btn--primary c-btn--large c-btn--full" @click="fetchData(true)">
                                 <span v-if="!loadingMore">Load more</span>
-                                <transition name="fade">
-                                    <div class="c-loader" v-if="loadingMore" aria-hidden="true">
-                                        <img class="c-loader__icon" src="assets/svg/loader.svg" alt="Loading...">
-                                    </div>
-                                </transition>
+                                <div class="c-loader" v-if="loadingMore" aria-hidden="true">
+                                    <img class="c-loader__icon" src="assets/svg/loader.svg" alt="Loading...">
+                                </div>
                             </button>
                         </li>
                     </ul>
