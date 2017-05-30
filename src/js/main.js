@@ -95,9 +95,12 @@
 
         methods: {
             resetArticles: function () {
-                this.currentSection = 'all-sections';
-                this.currentPeriod = 1;
-                this.currentType = 'mostviewed';
+                if (!this.showFilter) {
+                    this.currentSection = 'all-sections';
+                    this.currentPeriod = 1;
+                    this.currentType = 'mostviewed';
+                }
+                
                 this.showFilter = false;
             },
 
