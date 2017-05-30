@@ -99,7 +99,7 @@
                             <h2 class="c-article-list__empty-title">Whoops! No articles found.</h2>
                             <p>Please try some different filters.</p>
                         </li>
-                        <li class="c-article-list__content">
+                        <li class="c-article-list__content" v-if="!noNewResults">
                             <button class="c-btn c-btn--primary c-btn--large c-btn--full" @click="fetchData(true)">Load more</button>
                         </li>
                     </ul>
