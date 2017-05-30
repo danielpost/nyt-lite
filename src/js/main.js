@@ -94,6 +94,12 @@
         },
 
         methods: {
+            resetArticles: function () {
+                this.currentSection = 'all-sections';
+                this.currentPeriod = 1;
+                this.currentType = 'mostviewed';
+            },
+
             fetchData: function (loadMore) {
                 var xhr = new XMLHttpRequest(),
                     self = this;
