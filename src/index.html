@@ -27,7 +27,7 @@
 
         <div id="app" @keyup.esc="showFilter = false">
             <div class="c-header" @click.self="showFilter = !showFilter">
-                <div class="c-logo">
+                <div class="c-logo" @click="currentSection = 'all-sections'">
                     <img class="c-logo__img" src="assets/svg/nytlogo.svg" alt="The New York Times Lite">
                     Lite
                 </div>
