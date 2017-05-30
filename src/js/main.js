@@ -61,6 +61,7 @@
             currentPeriod: 1,
             currentType: 'mostviewed',
             offset: 0,
+            loadingMore: false,
             noNewResults: false,
             articles: null,
             loading: true,
@@ -100,7 +101,7 @@
                     this.currentPeriod = 1;
                     this.currentType = 'mostviewed';
                 }
-                
+
                 this.showFilter = false;
             },
 
@@ -110,6 +111,7 @@
 
                 self.offset = loadMore ? self.offset + 20 : self.offset;
                 self.loading = loadMore ? false : true;
+                self.loadingMore = loadMore ? true : false;
                 self.noNewResults = false;
 
                 var apiURL = 'https://api.nytimes.com/svc/mostpopular/v2/' + self.currentType + '/' + self.currentSection + '/' + self.currentPeriod + '.json?api-key=39abdacf3adc4a93a23bf03ed0790397&offset=' + self.offset;
@@ -151,6 +153,7 @@
                      */
                     self.noNewResults = (loadMore && self.articles.length < 20) ? true : false;
 
+                    self.loadingMore = false;
                     self.loading = false;
                 };
 

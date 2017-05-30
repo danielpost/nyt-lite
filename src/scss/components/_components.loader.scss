@@ -3,24 +3,22 @@
    ========================================================================== */
 
 // Internal variables.
-$loader-max-width: 60px;
+$loader-max-width: 12px;
+$loader-max-width--header: 16px;
 
 .c-loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 200;
+  line-height: 1;
+  display: inline-block;
+  max-width: $loader-max-width;
+  margin: 0 $spacing-unit--small;
+
+  img {
+    width: 100%;
+  }
 }
 
-.c-loader__icon {
-  max-width: $loader-max-width;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: $spacing-unit--small;
-  border-radius: $global-radius;
-  background-color: rgba($color-white, 0.9);
+.c-loader--header {
+  float: left;
+  line-height: 1.3;
+  max-width: $loader-max-width--header;
 }

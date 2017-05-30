@@ -26,11 +26,16 @@
         <![endif]-->
 
         <div id="app" @keyup.esc="showFilter = false">
-            <div class="c-header" @click.self="showFilter = !showFilter">
+            <div class="c-header" @click.self="showFilter = false">
                 <div class="c-logo" @click="resetArticles">
                     <img class="c-logo__img" src="assets/svg/nytlogo.svg" alt="The New York Times Lite">
                     Lite
                 </div>
+                <transition name="fade">
+                    <div class="c-loader c-loader--header" v-if="loading" aria-hidden="true">
+                        <img class="c-loader__icon" src="assets/svg/loader.svg" alt="Loading...">
+                    </div>
+                </transition>
                 <button class="c-header__button c-btn c-btn--primary" @click="showFilter = !showFilter">Filters</button>
             </div>
 
@@ -73,10 +78,6 @@
             </transition>
             <div class="o-wrapper o-wrapper--flush">
                 <transition name="fade">
-                    <div class="c-loader" v-if="loading" aria-hidden="true">
-                        <img class="c-loader__icon" src="assets/svg/loader.svg" alt="Loading...">
-                    </div>
-
                     <ul class="o-list-bare c-article-list" v-if="!loading" v-cloak>
                         <li v-for="(article, index) in articles">
                             <a :href="article.url" class="c-article-list__item">
@@ -100,7 +101,14 @@
                             <p>Please try some different filters.</p>
                         </li>
                         <li class="c-article-list__content" v-if="!noNewResults">
-                            <button class="c-btn c-btn--primary c-btn--large c-btn--full" @click="fetchData(true)">Load more</button>
+                            <button class="c-btn c-btn--primary c-btn--large c-btn--full" @click="fetchData(true)">
+                                <span v-if="!loadingMore">Load more</span>
+                                <transition name="fade">
+                                    <div class="c-loader" v-if="loadingMore" aria-hidden="true">
+                                        <img class="c-loader__icon" src="assets/svg/loader.svg" alt="Loading...">
+                                    </div>
+                                </transition>
+                            </button>
                         </li>
                     </ul>
                 </transition>
