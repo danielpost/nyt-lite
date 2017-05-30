@@ -60,19 +60,30 @@
             currentSection: 'all-sections',
             currentPeriod: 1,
             currentType: 'mostviewed',
+            offset: 0,
+            noNewResults: false,
             articles: null,
             loading: true,
             showFilter: false
         },
 
         created: function () {
-            this.fetchData();
+            this.fetchData(false);
         },
 
         watch: {
-            currentSection: 'fetchData',
-            currentPeriod: 'fetchData',
-            currentType: 'fetchData',
+            currentSection: function () {
+                this.offset = 0;
+                this.fetchData(false);
+            },
+            currentPeriod: function () {
+                this.offset = 0;
+                this.fetchData(false);
+            },
+            currentType: function () {
+                this.offset = 0;
+                this.fetchData(false);
+            },
             showFilter: 'lockBody'
         },
 
@@ -83,12 +94,15 @@
         },
 
         methods: {
-            fetchData: function () {
+            fetchData: function (loadMore) {
                 var xhr = new XMLHttpRequest(),
-                    self = this,
-                    apiURL = 'https://api.nytimes.com/svc/mostpopular/v2/' + self.currentType + '/' + self.currentSection + '/' + self.currentPeriod + '.json?api-key=39abdacf3adc4a93a23bf03ed0790397';
+                    self = this;
 
-                self.loading = true;
+                self.offset = loadMore ? self.offset + 20 : self.offset;
+                self.loading = loadMore ? false : true;
+                self.noNewResults = false;
+
+                var apiURL = 'https://api.nytimes.com/svc/mostpopular/v2/' + self.currentType + '/' + self.currentSection + '/' + self.currentPeriod + '.json?api-key=39abdacf3adc4a93a23bf03ed0790397&offset=' + self.offset;
 
                 xhr.open('GET', apiURL);
 
@@ -118,7 +132,14 @@
                         }
                     }
 
-                    self.articles = articles;
+                    self.articles = loadMore ? self.articles.concat(articles) : articles;
+
+                    /**
+                     * Unfortunaly, if we get less than 20 results, the next time the Load More
+                     * button is pressed those same results are returned, so we have to say
+                     * there's no new results.
+                     */
+                    self.noNewResults = (loadMore && self.articles.length < 20) ? true : false;
 
                     self.loading = false;
                 };

@@ -31,7 +31,7 @@
                     <img class="c-logo__img" src="assets/svg/nytlogo.svg" alt="The New York Times Lite">
                     Lite
                 </div>
-                <button class="c-header__button" @click="showFilter = !showFilter">Filters</button>
+                <button class="c-header__button c-btn c-btn--primary" @click="showFilter = !showFilter">Filters</button>
             </div>
 
             <transition name="bounce">
@@ -95,9 +95,12 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="c-article-list__empty" v-if="articles.length === 0">
+                        <li class="c-article-list__empty" v-if="articles.length === 0 || noNewResults">
                             <h2 class="c-article-list__empty-title">Whoops! No articles found.</h2>
                             <p>Please try some different filters.</p>
+                        </li>
+                        <li class="c-article-list__content">
+                            <button class="c-btn c-btn--primary c-btn--large c-btn--full" @click="fetchData(true)">Load more</button>
                         </li>
                     </ul>
                 </transition>
